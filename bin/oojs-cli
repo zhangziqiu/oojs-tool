@@ -1,0 +1,4 @@
+#! /usr/bin/env node
+require('node-oojs');
+oojs.using('oojs.cli');
+
