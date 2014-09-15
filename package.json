@@ -1,9 +1,9 @@
 {
-    "name": "oojs-tool",
-    "description": "the node-oojs tool for web development. Gzip/Compress js , css, etc...",
+    "name": "node-oojs-tool",
+    "description": "the tool for web development. Gzip/Compress js , css, etc...",
     "homepage": "https://github.com/zhangziqiu/oojs",
     "main": "",
-    "version": "1.0.2",
+    "version": "1.0.0",
     "engines": {
         "node": ">=0.4.0"
     },
@@ -18,8 +18,9 @@
     },
     "dependencies": {
         "node-oojs": "*",
-		"clean-css": "*",
-		"uglify-js": "*"
+        "node-oojs-utility": "*",
+        "clean-css": "*",
+        "uglify-js": "*"
     },
     "bin": {
         "oojs": "./bin/oojs-cli"
