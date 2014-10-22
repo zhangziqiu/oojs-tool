@@ -64,7 +64,7 @@ define && define({
         }.proxy(this));
         
         
-        // 处理source文件
+        // 澶勭悊source鏂囦欢
         var sourceFileArray = buildItem.sourceFile;
         for (var i = 0, count = sourceFileArray.length; i < count; i++) {
             var tempSourceFilePath = sourceFileArray[i];
@@ -72,7 +72,7 @@ define && define({
         }
         
         
-        // 处理format文件
+        // 澶勭悊format鏂囦欢
         var formatFileString = this.jsHelper.formatSync(sourceFileString, {comments: false});
         var formatFileArray = buildItem.formatFile;
         for (var i = 0, count = formatFileArray.length; i < count; i++) {
@@ -81,7 +81,7 @@ define && define({
         }            
         
         
-        // 处理compress文件
+        // 澶勭悊compress鏂囦欢
         var compressFileString = this.jsHelper.compressSync(sourceFileString);
         var compressFileArray = buildItem.compressFile;
         for(var i = 0, count = compressFileArray.length; i < count; i++) {
@@ -89,7 +89,7 @@ define && define({
             this.fs.writeFileSync(tempCompressFilePath, compressFileString);
         }    
         
-        // 处理gzip文件
+        // 澶勭悊gzip鏂囦欢
         var gzipFileArray = buildItem.gzipFile;
         for (var i = 0, count = gzipFileArray.length; i < count; i++) {
             var tempGzipFilePath = gzipFileArray[i];
