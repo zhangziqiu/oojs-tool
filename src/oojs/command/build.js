@@ -33,7 +33,6 @@ define && define({
 
         if (this.target) {
             this.buildItem(buildObj[this.target]);
-            console.log(this.target);
             return;
         }
 
