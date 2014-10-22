@@ -14,6 +14,7 @@ define && define({
     build: function(args){
         this.config = args.config || './package.json';
         this.configPath = this.path.resolve(this.config);
+        this.target = args.target;
     },
 
     /*
