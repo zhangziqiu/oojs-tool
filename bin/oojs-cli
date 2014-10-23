@@ -1,5 +1,17 @@
 #! /usr/bin/env node
 require('node-oojs');
 require('node-oojs-utility');
-oojs.using('oojs.cli');
 
+var tempIndex = __dirname.lastIndexOf('bin');
+var sourceFilePath = __dirname.substring(0,tempIndex) + "src/";
+
+var fileSync = oojs.using('oojs.utility.fileSync');
+var fileList = fileSync.getFileListSync(sourceFilePath);
+for (var i = 0, count = fileList.length; i < count; i++) {
+    var file = fileList[i];
+    if (file && file.indexOf('main.js') < 0 && file.indexOf('cli.js')<0) {
+        require(file);
+    }
+}
+
+require(sourceFilePath+'/oojs/cli.js');
