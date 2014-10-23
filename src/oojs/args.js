@@ -1,7 +1,7 @@
 define && define({
     name:'args',
     namespace:'oojs',
-    parseArgs:function(args){
+    parseArgs: function(args) {
         var result = { values:[] };
         var count = args.length;
         for(var i=0; i<count; ){
