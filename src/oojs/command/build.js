@@ -99,7 +99,7 @@ define && define({
 
                 var templateSource = this.fileSync.readFileSync(buildTemplate);
                 var importRegexp = /\$import\((\S+)\)\s*;/gi;
-                var importWithDepsRegexp = /\$importWithDeps\((\S+)\)\s*;/gi;
+                var importWithDepsRegexp = /\$importAll\((\S+)\)\s*;/gi;
                 var importMatch;
 
                 //处理import命令, 只引用当前类
@@ -107,9 +107,16 @@ define && define({
                     var result = "";
                     var importFilePath = arguments[1];
                     importFilePath = importFilePath.replace(/\'/gi, "").replace(/\"/gi, "");
-                    if (importFilePath) {
-                        result = this.fileSync.readFileSync(importFilePath);
+                    
+                    //处理 module 引用
+                    if(importFilePath && importFilePath.indexOf('oojs')>-1){
+                        importFilePath = "./node_modules/node-oojs/src/" + importFilePath.replace('oojs.', "") + ".js";
                     }
+                    else{
+                        importFilePath = oojs.getClassPath(importFilePath);
+                    }
+                    
+                    result = this.fileSync.readFileSync(importFilePath);
                     return result;
                 }.proxy(this));
 
